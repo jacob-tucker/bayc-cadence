@@ -142,15 +142,13 @@ pub contract BoredApeYachtClub: NonFungibleToken {
         ownerVault.deposit(from: <- payment)
     }
 
-    init(
-        //maxNftSupply: UInt64,
-    ) {
+    init(maxNftSupply: UInt64) {
         self.totalSupply = 0
         self.templates = {}
         
         self.apePrice = 0.08 // $FLOW
         self.maxApePurchase = 20
-        self.maxApes = 100 // maxNftSupply
+        self.maxApes = maxNftSupply
         self.saleIsActive = false
 
         self.CollectionStoragePath = /storage/BAYCCollection
